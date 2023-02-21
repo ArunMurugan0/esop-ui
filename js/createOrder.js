@@ -30,22 +30,8 @@ function addResponseLabelToResponseContainer(responseContainer, labelName, label
     responseContainer.append(newline)
 }
 
-function successHandler(response) {
-    const responseContainer = document.getElementById("response")
-    while (responseContainer.hasChildNodes()){
-       responseContainer.removeChild(responseContainer.firstChild)
-    }
-    const heading = document.createElement("h3")
-    heading.innerText = "Response : "
-    responseContainer.append(heading)
-
-    addResponseLabelToResponseContainer(responseContainer, "Order ID : ",response["orderId"])
-    addResponseLabelToResponseContainer(responseContainer, "Order Quantity : ",response["quantity"])
-    addResponseLabelToResponseContainer(responseContainer, "Order Type : ",response["type"])
-    addResponseLabelToResponseContainer(responseContainer, "Order Price : ",response["price"])
-    if(response.esopType){
-        addResponseLabelToResponseContainer(responseContainer, "Esop Type : ",response["esopType"])
-    }
+function successHandler() {
+    alert("Order Placed Successfully!")
 }
 
 function errorHandler(errResponse) {
