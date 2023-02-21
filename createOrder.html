@@ -36,14 +36,17 @@
                 <option value="BUY">Buy</option>
                 <option value="SELL">Sell</option>
             </select>
-        <div id="esop-type-container" class="hidden">
-            <label for="non-performance-esop-type">Non Performance
-            <input id="non-performance-esop-type" type="radio" value="NON_PERFORMANCE" name="esopType" checked hidden/>
-            </label>
-            <label for="performance-esop-type" >Performance
-            <input type="radio" id="performance-esop-type" value="PERFORMANCE" name="esopType" hidden/>
-            </label>
-        </div>
+            <br />
+            <div>
+                
+            </div>
+            <label for="esop-type" class="hidden">ESOP Type : </label>
+            <br/>
+            <select id="esop-type" name="esopType" hidden>
+                <option value="">Select</option>
+                    <option value="NON_PERFORMANCE">Non Performance</option>
+                    <option value="PERFORMANCE">Performance</option>
+                </select>
             <br>
             <button id="submit">Create Order</button>
         </form>

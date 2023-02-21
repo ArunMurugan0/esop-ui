@@ -91,14 +91,14 @@ const form = document.getElementById(formID)
 const esopTypeContainer = document.getElementById("esop-type-container")
 
 document.getElementById("order-type").addEventListener("change", (e) => {
+    const esopTypeLabel = document.querySelector('label[for="esop-type"]')
+
     if (e.target.value == "SELL") {
-        document.getElementById("non-performance-esop-type").removeAttribute("hidden")
-        document.getElementById("performance-esop-type").removeAttribute("hidden")
-        esopTypeContainer.classList.remove('hidden')
+        document.getElementById("esop-type").removeAttribute("hidden")
+        esopTypeLabel.classList.remove('hidden')
     } else {
-        document.getElementById("non-performance-esop-type").setAttribute("hidden", true)
-        document.getElementById("performance-esop-type").setAttribute("hidden", true)
-        esopTypeContainer.classList.add('hidden')
+        document.getElementById("esop-type").setAttribute("hidden", true)
+        esopTypeLabel.classList.add('hidden')
     }
 })
 

@@ -36,3 +36,18 @@
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
+#esop-type-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#esop-type-container label{
+    display: flex;
+    width: 380px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
