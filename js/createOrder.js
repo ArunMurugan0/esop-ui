@@ -18,6 +18,7 @@ function sendCreateOrderRequest(orderDetails) {
         }
     })
 }
+
 function addResponseLabelToResponseContainer(responseContainer, labelName, labelValue) {
     const label = document.createElement("label")
     label.innerText = labelName
