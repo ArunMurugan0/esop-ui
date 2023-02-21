@@ -41,3 +41,12 @@
     justify-content: center;
     font-weight: bold;
 }
+
+#success-response-container table,td{
+    border: 1px solid black;
+}
+
+#success-response-container table{
+    margin-top: 15px;
+    width: 100%;
+}
