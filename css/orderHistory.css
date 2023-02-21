@@ -31,3 +31,13 @@
     background-color: black;
     color: white;
 }
+
+#error-response-container {
+    color: #b23f3f;
+}
+
+#success-response-container p{
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+}
