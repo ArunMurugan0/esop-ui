@@ -40,19 +40,18 @@ function exceptionHandler(exception) {
 }
 
 function errorHandler(errResponse) {
-    const errorContainer = document.getElementById("response")
+    const errorContainer = document.getElementById("error-response-container")
     while (errorContainer.hasChildNodes()){
        errorContainer.removeChild(errorContainer.firstChild)
     }
-    const heading = document.createElement("h3")
-    heading.innerText = "Errors : "
+
     const errorListContainer = document.createElement("ul")
     for(let i = 0; i < errResponse["errors"].length ; i++){
         const error = document.createElement("li")
         error.innerText = errResponse["errors"][i]
         errorListContainer.append(error)
     }
-    errorContainer.append(heading)
+
     errorContainer.append(errorListContainer)
 }
 

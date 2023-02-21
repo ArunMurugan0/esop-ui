@@ -51,3 +51,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+#error-response-container {
+    color: #b23f3f;
+}
