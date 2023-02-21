@@ -12,14 +12,6 @@ body {
     justify-content: center;
 }
 
-button{
-    color: black;
-    background-color: white;
-    height: 45px;
-    width: 150px;
-    border-radius: none;
-    font-weight: bold;
-    font-size: 15px;
-    cursor: pointer;
-    margin-top: 5px;
+.hidden {
+    display: none;
 }

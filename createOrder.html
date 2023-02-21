@@ -32,9 +32,18 @@
             <label>Order Type : </label>
             <br>
             <select id="order-type" name="orderType">
+            <option value="">Select</option>
                 <option value="BUY">Buy</option>
                 <option value="SELL">Sell</option>
             </select>
+        <div id="esop-type-container" class="hidden">
+            <label for="non-performance-esop-type">Non Performance
+            <input id="non-performance-esop-type" type="radio" value="NON_PERFORMANCE" name="esopType" checked hidden/>
+            </label>
+            <label for="performance-esop-type" >Performance
+            <input type="radio" id="performance-esop-type" value="PERFORMANCE" name="esopType" hidden/>
+            </label>
+        </div>
             <br>
             <button id="submit">Create Order</button>
         </form>

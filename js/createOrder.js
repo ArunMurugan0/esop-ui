@@ -64,14 +64,18 @@ function getOrderFormData(form) {
     const type = formData.get('orderType')
     const quantity = parseInt(formData.get('orderQuantity'))
     const price = parseInt(formData.get('orderPrice'))
+    const esopType = formData.get('esopType')
 
     return {
         type,
         username,
         quantity,
-        price
+        price,
+        ...(esopType ? { esopType }: { })
     }
 }
+
+
 
 
 function formSubmitHandler(event) {
@@ -82,6 +86,21 @@ function formSubmitHandler(event) {
 
 const formID = "create-order-form"
 const form = document.getElementById(formID)
+
+
+const esopTypeContainer = document.getElementById("esop-type-container")
+
+document.getElementById("order-type").addEventListener("change", (e) => {
+    if (e.target.value == "SELL") {
+        document.getElementById("non-performance-esop-type").removeAttribute("hidden")
+        document.getElementById("performance-esop-type").removeAttribute("hidden")
+        esopTypeContainer.classList.remove('hidden')
+    } else {
+        document.getElementById("non-performance-esop-type").setAttribute("hidden", true)
+        document.getElementById("performance-esop-type").setAttribute("hidden", true)
+        esopTypeContainer.classList.add('hidden')
+    }
+})
 
 form.addEventListener("submit", formSubmitHandler)
 
