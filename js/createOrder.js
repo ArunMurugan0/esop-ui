@@ -16,8 +16,9 @@ function sendCreateOrderRequest(orderDetails) {
         }else{
             successHandler(res)
         }
-    })
+    }).catch(exceptionHandler)
 }
+
 
 function addResponseLabelToResponseContainer(responseContainer, labelName, labelValue) {
     const label = document.createElement("label")
@@ -32,6 +33,10 @@ function addResponseLabelToResponseContainer(responseContainer, labelName, label
 
 function successHandler() {
     alert("Order Placed Successfully!")
+}
+
+function exceptionHandler(exception) {
+    alert(exception.message)
 }
 
 function errorHandler(errResponse) {
