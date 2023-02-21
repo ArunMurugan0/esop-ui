@@ -10,25 +10,56 @@ function sendCreateOrderRequest(orderDetails) {
             "Accept": "application/json"
         }
 
-    }).then(res => res.json()).then(console.log).catch(errorHandler)
+    }).then(res => res.json()).then(res => {
+        if(res.errors){
+            errorHandler(res)
+        }else{
+            successHandler(res)
+        }
+    })
+}
+function addResponseLabelToResponseContainer(responseContainer, labelName, labelValue) {
+    const label = document.createElement("label")
+    label.innerText = labelName
+    const labelData = document.createElement("label")
+    labelData.innerText = labelValue
+    const newline = document.createElement("br")
+    responseContainer.append(label)
+    responseContainer.append(labelValue)
+    responseContainer.append(newline)
 }
 
 function successHandler(response) {
+    const responseContainer = document.getElementById("response")
+    while (responseContainer.hasChildNodes()){
+       responseContainer.removeChild(responseContainer.firstChild)
+    }
+    const heading = document.createElement("h3")
+    heading.innerText = "Response : "
+    responseContainer.append(heading)
 
+    addResponseLabelToResponseContainer(responseContainer, "Order ID : ",response["orderId"])
+    addResponseLabelToResponseContainer(responseContainer, "Order Quantity : ",response["quantity"])
+    addResponseLabelToResponseContainer(responseContainer, "Order Type : ",response["type"])
+    addResponseLabelToResponseContainer(responseContainer, "Order Price : ",response["price"])
+    if(response.esopType){
+        addResponseLabelToResponseContainer(responseContainer, "Esop Type : ",response["esopType"])
+    }
 }
 
 function errorHandler(errResponse) {
-    const errorContainer = document.getElementById("errors")
+    const errorContainer = document.getElementById("response")
+    while (errorContainer.hasChildNodes()){
+       errorContainer.removeChild(errorContainer.firstChild)
+    }
     const heading = document.createElement("h3")
     heading.innerText = "Errors : "
     const errorListContainer = document.createElement("ul")
-    for(let i = 0; i < errResponse["error"].length; i++){
+    for(let i = 0; i < errResponse["errors"].length ; i++){
         const error = document.createElement("li")
-        error.innerText = errResponse["error"][i]
+        error.innerText = errResponse["errors"][i]
         errorListContainer.append(error)
     }
-    console.log(heading)
-    console.log(errorListContainer)
     errorContainer.append(heading)
     errorContainer.append(errorListContainer)
 }
