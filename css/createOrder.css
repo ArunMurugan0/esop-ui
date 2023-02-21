@@ -1,0 +1,38 @@
+#create-order-form input{
+    width:200px;
+    height:20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 4px;
+    padding-right: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#create-order-form button{
+    color: black;
+    background-color: white;
+    height: 45px;
+    width: 150px;
+    border-radius: 14px;
+    border-style:solid;
+    border-width: 1px;
+    border-color: black;
+    font-weight: lighter;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 1s;
+}
+
+#create-order-form button:hover{
+    background-color: black;
+    color: white;
+}
+
+#create-order-form select{
+    width: 210px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

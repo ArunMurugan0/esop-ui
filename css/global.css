@@ -1,3 +1,25 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+.center-text{
+    display:flex;
+    justify-content: center;
+}
+
+.form-center{
+    display:flex;
+    justify-content: center;
+}
+
+button{
+    color: black;
+    background-color: white;
+    height: 45px;
+    width: 150px;
+    border-radius: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 5px;
+}

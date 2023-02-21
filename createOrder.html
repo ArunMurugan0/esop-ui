@@ -8,30 +8,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/createOrder.css" />
 </head>
 
 <body>
-    <h1>Create Order</h1>
+    <h1 class="center-text">Create Order</h1>
     <div id="response">
     </div>
-    <form id="create-order-form">
-        <label>Username : </label>
-        <input name="username" type="text" id="username">
-        <br>
-        <label>Order Quantity : </label>
-        <input name="orderQuantity" type="number" id="order-quantity">
-        <br>
-        <label>Order Price : </label>
-        <input type="number" name="orderPrice" id="order-price">
-        <br>
-        <label>Order Type : </label>
-        <select id="order-type" name="orderType">
-            <option value="BUY">Buy</option>
-            <option value="SELL">Sell</option>
-        </select>
-        <br>
-        <button id="submit">Submit</button>
-    </form>
+    <div class="form-center">
+        <form id="create-order-form">
+            <label>Username : </label>
+            <br>
+            <input name="username" type="text" id="username">
+            <br>
+            <label>Order Quantity : </label>
+            <br>
+            <input name="orderQuantity" type="number" id="order-quantity">
+            <br>
+            <label>Order Price : </label>
+            <br>
+            <input type="number" name="orderPrice" id="order-price">
+            <br>
+            <label>Order Type : </label>
+            <br>
+            <select id="order-type" name="orderType">
+                <option value="BUY">Buy</option>
+                <option value="SELL">Sell</option>
+            </select>
+            <br>
+            <button id="submit">Create Order</button>
+        </form>
+    </div>
     <script type="text/javascript" src="js/createOrder.js">
     </script>
 </body>
