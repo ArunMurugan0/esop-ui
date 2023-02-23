@@ -41,9 +41,6 @@ function exceptionHandler(exception) {
 
 function errorHandler(errResponse) {
     const errorContainer = document.getElementById("error-response-container")
-    while (errorContainer.hasChildNodes()){
-       errorContainer.removeChild(errorContainer.firstChild)
-    }
 
     const errorListContainer = document.createElement("ul")
     for(let i = 0; i < errResponse["errors"].length ; i++){
@@ -79,6 +76,10 @@ function getOrderFormData(form) {
 
 function formSubmitHandler(event) {
     event.preventDefault()
+    const errorContainer = document.getElementById("error-response-container")
+    while (errorContainer.hasChildNodes()){
+       errorContainer.removeChild(errorContainer.firstChild)
+    }
     const orderDetails = getOrderFormData(event.target)
     sendCreateOrderRequest(orderDetails)
 }

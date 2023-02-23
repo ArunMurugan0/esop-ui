@@ -55,9 +55,6 @@ function addDataToRow(tr,data){
 
 function successHandlerForOrderHistory(response){
     const ressponseContainer = document.getElementById("success-response-container")
-    while (ressponseContainer.hasChildNodes()){
-        ressponseContainer.removeChild(ressponseContainer.firstChild)
-    }
     if(response.length == 0){
         const message = document.createElement("p")
         message.innerText = "No orders placed"
@@ -101,6 +98,10 @@ function successHandlerForOrderHistory(response){
 
 function orderHisotoryFormSubmitHandler(event) {
     event.preventDefault()
+    const ressponseContainer = document.getElementById("success-response-container")
+    while (ressponseContainer.hasChildNodes()){
+        ressponseContainer.removeChild(ressponseContainer.firstChild)
+    }
     const orderHistoryFormDetails = getOrderHisotryFormData(event.target)
     sendOrderHistoryRequest(orderHistoryFormDetails)
 }
