@@ -1,13 +1,16 @@
 import { APIService } from "./APIService.js"
 import { OrderHistoryService } from "./OrderHistoryService.js"
 
-const orderHistory = new OrderHistoryService(new APIService("http://127.0.0.1:8080/", window.fetch.bind(window)))
+
+const httpFetch = window.fetch.bind(window)
+const apiService = new APIService("http://127.0.0.1:8080/", httpFetch)
+const orderHistoryService = new OrderHistoryService(apiService)
 
 
 function sendOrderHistoryRequest(orderHistoryFormDetails) {
     const {username} = orderHistoryFormDetails
 
-    orderHistory.getHistory(username).then(res => {
+    orderHistoryService.getHistory(username).then(res => {
         if(res.errors){
             errorHandlerForOrderHistory(res)
         }else{
