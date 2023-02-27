@@ -1,11 +1,13 @@
+import { APIService } from "./APIService.js"
+import { OrderHistoryService } from "./OrderHistoryService.js"
+
+const orderHistory = new OrderHistoryService(new APIService("http://127.0.0.1:8080/", window.fetch.bind(window)))
+
+
 function sendOrderHistoryRequest(orderHistoryFormDetails) {
     const {username} = orderHistoryFormDetails
-    fetch(`http://127.0.0.1:8080/user/${username}/orderHistory`, {
-        method: "GET",
-        headers: {
-            "Accept" : "application/json"
-        }
-    }).then(res => res.json()).then(res => {
+
+    orderHistory.getHistory(username).then(res => {
         if(res.errors){
             errorHandlerForOrderHistory(res)
         }else{
@@ -13,6 +15,7 @@ function sendOrderHistoryRequest(orderHistoryFormDetails) {
         }
     })
 }
+
 function getOrderHisotryFormData(form) {
     const formData = new FormData(form)
     
@@ -71,7 +74,7 @@ function successHandlerForOrderHistory(response){
             addDataToRow(tr,response[i]["type"])
             addDataToRow(tr,response[i]["price"])
             addDataToRow(tr,response[i]["status"])
-            const filledOrders = response[i]["filled"]
+            const filledOrders = response[i]["filled"] ?? []
             const td = tr.insertCell()
             let remainingQuantity = quantity
             for(let j = 0; j < filledOrders.length; j++){
