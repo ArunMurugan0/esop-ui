@@ -1,11 +1,8 @@
 {
-  "name": "JavaScript Template",
+  "name": "esop-ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=development",
-    "start": "npm run build && webpack-dev-server --open --mode=development",
     "lint": "eslint src/*.js",
     "test": "jest --coverage"
   },
@@ -13,21 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.18.6",
-    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.6.0",
-    "eslint": "^8.18.0",
-    "eslint-webpack-plugin": "^2.7.0",
-    "html-webpack-plugin": "^4.5.2",
-    "jest": "^29.4.3",
-    "style-loader": "^1.3.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^4.11.1"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3"
+    "eslint": "^8.35.0",
+    "jest": "^29.4.3"
   }
 }
